@@ -16,7 +16,7 @@ try:
     if i.isdigit():
       followers += i
 except:
-  continue
+  pass
 
 async def fetch_photos(user_id, current_page):
   url = "https://api.flickr.com/services/rest"
