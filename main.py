@@ -7,15 +7,16 @@ import aiohttp
 #Use https://www.webfx.com/tools/idgettr/ if their flickr page has their name in the link instead of the id.
 user_id = st.text_input(":violet[Enter your Flickr ID: (Use https://www.webfx.com/tools/idgettr/ if their flickr page has their name in the link instead of the id)]", value="191092571@N03")
 
-url = f"https://www.flickr.com/photos/{user_id}/"
-response = requests.get(url).text
-f = response.find('followerCount')
-followers = ""
-for i in response[f + 15:f + 20]:
-  if i.isdigit():
-    followers += i
-print(f"Followers: {int(followers)}")
-
+try:
+  url = f"https://www.flickr.com/photos/{user_id}/"
+  response = requests.get(url).text
+  f = response.find('followerCount')
+  followers = ""
+  for i in response[f + 15:f + 20]:
+    if i.isdigit():
+      followers += i
+except:
+  continue
 
 async def fetch_photos(user_id, current_page):
   url = "https://api.flickr.com/services/rest"
@@ -58,6 +59,7 @@ async def main(user_id):
         break
       current_page += 1
     st.write(":violet[Your Flickr stats:]")
+    st.write(f":violet[Followers:] :blue[{int(followers)}]")
     st.write(f":violet[Total Faves:] :blue[{faves}]")
     st.write(f":violet[Total Views:] :blue[{views}]")
     st.write(f":violet[Total Comments:] :blue[{comments}]")
