@@ -5,7 +5,7 @@ import aiohttp
 
 #Flickr ID
 #Use https://www.webfx.com/tools/idgettr/ if their flickr page has their name in the link instead of the id.
-user_id = st.text_input(":violet[Enter your Flickr ID: (Use https://www.webfx.com/tools/idgettr/ if their flickr page has their name in the link instead of the id)]", value="191092571@N03")
+user_id = st.text_input(":red[Enter your Flickr ID: (Use https://www.webfx.com/tools/idgettr/ if their flickr page has their name in the link instead of the id)]", value="191092571@N03")
 
 url = f"https://www.flickr.com/photos/{user_id}/"
 response = requests.get(url).text
