@@ -5,7 +5,7 @@ import aiohttp
 
 #Flickr ID
 #Use https://www.webfx.com/tools/idgettr/ if their flickr page has their name in the link instead of the id.
-user_id = st.text_input(":red[Enter your Flickr ID: (Use https://www.webfx.com/tools/idgettr/ if their flickr page has their name in the link instead of the id)]", value="191092571@N03")
+user_id = st.text_input(":green[Enter your Flickr ID: (Use https://www.webfx.com/tools/idgettr/ if their flickr page has their name in the link instead of the id)]", value="191092571@N03")
 
 url = f"https://www.flickr.com/photos/{user_id}/"
 response = requests.get(url).text
@@ -57,10 +57,10 @@ async def main(user_id):
       if response['photos']['pages'] == current_page:
         break
       current_page += 1
-    st.write(":violet[Your Flickr stats:]")
-    st.write(f":green[Total Faves: {faves}]")
-    st.write(f":orange[Total Views: {views}]")
-    st.write(f":violet[Total Comments: {comments}]")
+    st.write(":green[Your Flickr stats:]")
+    st.write(f":green[Total Faves:] :blue[{faves}]")
+    st.write(f":green[Total Views:] :blue{views}]")
+    st.write(f":green[Total Comments:] :blue{comments}]")
   except:
     st.write(":violet[Invalid Flickr ID]")
 
