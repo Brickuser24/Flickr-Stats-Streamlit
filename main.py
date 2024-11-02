@@ -58,8 +58,8 @@ async def main(user_id):
         break
       current_page += 1
     st.write(":violet[Your Flickr stats:]")
-    st.write(f":violet[Total Faves: {faves}]")
-    st.write(f":violet[Total Views: {views}]")
+    st.write(f":green[Total Faves: {faves}]")
+    st.write(f":orange[Total Views: {views}]")
     st.write(f":violet[Total Comments: {comments}]")
   except:
     st.write(":violet[Invalid Flickr ID]")
